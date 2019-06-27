@@ -2,7 +2,9 @@
 #define UTILITY_H
 
 #include <string>
+#include <vector>
 #include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -12,6 +14,7 @@ class Utility {
         static string convertTime(long int input); //takes an input in seconds and converts to hh:mm:ss format
         static string getProgressBar(string percent); //converts a string to a user friendly bar shape
         static ifstream getFileStream(string path); //file reading function: returns a file stream
+        static vector<string> getLineVector(string line);   //converts a string line to a string vector
 };
 
 string Utility::convertTime(long int input) {
@@ -45,6 +48,22 @@ ifstream Utility::getFileStream(string path) {
         throw runtime_error("Non Existing PID");
     }
     return file;
+}
+
+ifstream Utility::getFileStream(string path) {
+    ifstream file(path);
+    if  (!file) {
+        throw runtime_error("Non Existing PID");
+    }
+    return file;
+}
+
+vector<string> Utility::getLineVector(string line) {
+    istringstream stringStream(line);   
+    istream_iterator<string> iterator(stringStream), end; //slices the string line into words and converts to a vector
+    vector<string> values(iterator, end);
+
+    return values;
 }
 
 #endif
