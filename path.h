@@ -5,7 +5,7 @@
 
 using namespace std;
 
-enum CPUStates{
+enum CPUStates{ //enum for CPU related functions in processParser.h
 	S_USER = 1,
 	S_NICE,
 	S_SYSTEM,
