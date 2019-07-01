@@ -50,14 +50,6 @@ ifstream Utility::getFileStream(string path) {
     return file;
 }
 
-ifstream Utility::getFileStream(string path) {
-    ifstream file(path);
-    if  (!file) {
-        throw runtime_error("Non Existing PID");
-    }
-    return file;
-}
-
 vector<string> Utility::getLineVector(string line) {
     istringstream stringStream(line);   
     istream_iterator<string> iterator(stringStream), end; //slices the string line into words and converts to a vector
@@ -67,3 +59,15 @@ vector<string> Utility::getLineVector(string line) {
 }
 
 #endif
+
+// Testing
+// #include <iostream>
+// using namespace std;
+// int main() {
+//     cout << Utility::convertTime(8515) << endl;
+//     cout << Utility::getProgressBar("57") << endl;
+//     string line = "1 (sh) S 0 1 1 0 -1 4194560 752 0 15 0 3 0 0 0 20 0 1 0 2140 4612096 199 18446744073709551615 94582355120128 94582355264028 140736229428416 0 0 0 0 0 65538 1 0 0 17 0 0 0 9 0 0 94582357364584 94582357369376 94582365655040 140736229432639 140736229432736 140736229432736 140736229433328 0";
+//     vector<string> values = Utility::getLineVector(line);
+//     cout << values[1] << endl;   
+//     return 0;
+// }
