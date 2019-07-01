@@ -34,7 +34,7 @@ class Process {
         string getMeM() const {return this->mem;}
         string getUpTime() const {return this->upTime;}
 
-        string getProcess();    //nicely format pid, user, memory, cpu, cmd and up time into a single string value
+        string getProcess();    //nicely formats pid, user, memory, cpu, cmd and up time into a single string value
 };
 
 string Process::getProcess() {
