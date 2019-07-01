@@ -22,9 +22,15 @@ class ProcessParser {
         static string getCMD(string pid);           //gets the command that executed the process
         static int getNumbCores();                  //gets the number of CPU cores
         static vector<string> getSysCPU_percent(string coreNumb = "");   //gets the cpu info for a particular cpu
-        float getSysActiveCPU_time(vector<string> values);          //gets the active time for a particular cpu
-        float getSysIdleCPU_time(vector<string> values);            //gets the idle time for a particular cpu
-        string printCPU_stats(vector<string> values1, vector<string> values2);  //gets the overall cpu usage
+        static float getSysActiveCPU_time(vector<string> values);   //gets the active time for a particular cpu
+        static float getSysIdleCPU_time(vector<string> values);     //gets the idle time for a particular cpu
+        static string printCPU_stats(vector<string> values1, vector<string> values2);  //gets the overall cpu usage
+        static float getSysRAM_percent();           //gets the total usage of RAM
+        static string getSysKernelVersion();        //gets the version of the kernel
+        static string getOS_name();                 //gets the name of the OS
+        static int getTotalThreads();               //gets the total number of threads of every processes
+        static int getTotalProcesses();             //gets the total number of processes
+        static int getTotalRunningProcesses();      //gets the total number of currently running processes
 };
 
 #endif
