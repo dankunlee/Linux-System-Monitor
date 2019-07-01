@@ -41,15 +41,27 @@ string ProcessContainer::printList() {
 }
 
 vector<string> ProcessContainer::getList() {
+    vector<vector<string>> values;
     vector<string> processList;
-    string process;
 
-    for (int i = this->list.size() - 10; i < this->list.size(); i++) { //iterates only last 10 processes
-        process = this->list[i].getProcess();
-        processList.push_back(process);
+    for(int i=0; i < this->list.size(); i++){
+        processList.push_back(this->list[i].getProcess());
     }
 
-    return processList;
+    int lastIndex = 0;
+    for (int i=0; i < processList.size(); i++){
+        if(i %10 == 0 && i > 0){
+          vector<string>  temp(&processList[i-10], &processList[i]);
+          values.push_back(temp);
+          lastIndex = i;
+        }
+
+        if(i == (this->list.size() - 1) && (i-lastIndex)<10){
+            vector<string> sub(&processList[lastIndex],&processList[i+1]);
+            values.push_back(sub);
+        }
+   }
+    return values;
 }
 
 #endif
