@@ -18,7 +18,7 @@ class ProcessContainer{
         }
         void updateList();      //updates the list - vector of Process classes 
         string printList();     //returns all processes' info into a single combined string value
-        vector<string> getList();   //returns last 10 processes' info (about pid, user, mem, cpu, uptime, cmd)
+        vector<vector<string>> getList();   //returns last 10 processes' info (about pid, user, mem, cpu, uptime, cmd)
 };
 
 void ProcessContainer::updateList() {
@@ -40,7 +40,7 @@ string ProcessContainer::printList() {
     return connectedList;
 }
 
-vector<string> ProcessContainer::getList() {
+vector<vector<string>> ProcessContainer::getList() {
     vector<vector<string>> values;
     vector<string> processList;
 
