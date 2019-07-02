@@ -68,9 +68,12 @@ void SysInfo::setAttributes() {
 }
 
 void SysInfo::setCPU_coresStats() { //every core is updated and previous data becomes the current data of calculated measures
-    for (int i; i < this->currentCPU_coresStats.size(); i++) {
+    for(int i=0; i < this->currentCPU_coresStats.size(); i++){
         this->currentCPU_coresStats[i] = ProcessParser::getSysCPU_percent(to_string(i)); //gets the data from files
-        this->coresStats[i] = ProcessParser::printCPU_stats(this->lastCPU_coresStats[i], this->currentCPU_coresStats[i]);   //calculates every core percentage of usage
+    }
+
+    for(int i=0; i < this->currentCPU_coresStats.size();i++){
+        this->coresStats[i] = ProcessParser::printCPU_stats(this->lastCPU_coresStats[i],this->currentCPU_coresStats[i]);    //calculates every core percentage of usage
     }
 
     this->lastCPU_coresStats = this->currentCPU_coresStats;
