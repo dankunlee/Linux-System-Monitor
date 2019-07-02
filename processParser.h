@@ -33,6 +33,7 @@ class ProcessParser {
         static int getTotalThreads();               //gets the total number of threads of every processes
         static int getTotalProcesses();             //gets the total number of processes
         static int getTotalRunningProcesses();      //gets the total number of currently running processes
+        static bool isPID_existing(string pid);     //checks if the given pid exists
 };
 
 string ProcessParser::getVMsize(string pid) {
@@ -325,6 +326,16 @@ int ProcessParser::getTotalRunningProcesses() {
     }
 
     return 0;
+}
+
+bool ProcessParser::isPID_existing(string pid) {
+    vector<string> pidList = ProcessParser::getPID_List();
+    
+    for (string i : pidList) {
+        if (i == pid) return true;
+    }
+
+    return false;
 }
 
 #endif
