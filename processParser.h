@@ -6,6 +6,8 @@
 #include <vector>
 #include <unistd.h>
 #include <dirent.h>
+#include <cstring>
+#include <algorithm>
 #include "path.h"
 #include "utility.h"
 
@@ -165,7 +167,7 @@ int ProcessParser::getNumbCores() {
     return stoi(cpuNumb);
 }
 
-vector<string> ProcessParser::getSysCPU_percent(string coreNumb = "") {
+vector<string> ProcessParser::getSysCPU_percent(string coreNumb) {
     string line;
     string name = "cpu" + coreNumb;
     
