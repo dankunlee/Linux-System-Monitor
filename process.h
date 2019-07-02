@@ -38,6 +38,9 @@ class Process {
 };
 
 string Process::getProcess() {
+    if(!ProcessParser::isPID_existing(this->pid))
+        return "";
+    
     this->cpu = ProcessParser::getCPU_Percent(pid);
     this->mem = ProcessParser::getVMsize(pid);
     this->upTime = ProcessParser::getProcUpTime(pid);
