@@ -12,3 +12,5 @@ Compile and Run
 ```
 g++ -std="c++17" main.cpp -lncurses && ./a.out
 ```
+Screenshot of the Program:
+![Screenshot](https://github.com/dankunlee/Linux-System-Monitor/blob/master/Screenshot.png)
